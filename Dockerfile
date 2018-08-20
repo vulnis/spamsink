@@ -1,6 +1,6 @@
 # Dockerfile for building a SMTP/SPAM Sink in Docker
 
-FROM debian:jessie
+FROM arm64v8/debian:stretch
 MAINTAINER  Emre Bastuz <info@emre>
 
 # Environment 
