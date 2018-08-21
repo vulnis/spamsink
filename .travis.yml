@@ -1,0 +1,19 @@
+language: python
+
+env:
+  - ARCH=x64
+  - ARCH=arm
+
+python:
+  - 2.7
+
+services:
+  - docker
+
+install:
+  - docker build -t spamsink-arm64v8:ci .
+  - docker run -d -p 127.0.0.1:80:80 --name spamsink -e SINK_HOSTNAME="smtp.hack.box" -e SINK_PORT=25 -v /tmp:/opt/spamsink/mails -p 127.0.0.1:25:25 spamsink-arm64v8:ci
+
+script:
+  - docker ps | grep -q spamsink
+
