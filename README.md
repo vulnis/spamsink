@@ -7,11 +7,11 @@ The tool "smtp-sink" is bundled with Postfix and has been created to conduct SMT
 For doing SPAM related security research it can be used to create a "receive it all" kind of setup, the catch-all not being limited to specific domains or email addresses.
  
 # Usage
-Install the container with `docker pull hmlio/spamsink`.
+Install the container with `docker pull vulnis/spamsink-arm64v8`.
 
 Run the container with two environment variables, a volume mapping and a port mapping:
 
-`docker run -d -e SINK_HOSTNAME="mail.example.com" -e SINK_PORT=2525 -v /tmp:/opt/spamsink/mails -p 25:2525 hmlio/spamsink`
+`docker run -d -e SINK_HOSTNAME="mail.example.com" -e SINK_PORT=2525 -v /tmp:/opt/spamsink/mails -p 25:2525 vulnis/spamsink-arm64v8`
 
 The environment variable set as "SINK_HOSTNAME" will be used for HELO/EHLO responses of the SMTP server.
 
